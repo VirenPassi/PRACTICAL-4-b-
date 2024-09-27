@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #2: Changing colors</title>
+    <style>
+        #mydiv {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        // JavaScript code to change the color of the div on click
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get the div element
+            const myDiv = document.getElementById("mydiv");
+
+            // Set initial color to blue
+            myDiv.style.backgroundColor = "blue";
+
+            // Array of colors to cycle through
+            const colors = ["blue", "red", "green"];
+            let currentColorIndex = 0;
+
+            // Function to change the color on click
+            myDiv.onclick = function() {
+                // Increment the color index
+                currentColorIndex = (currentColorIndex + 1) % colors.length;
+                
+                // Set the div's background color to the next color
+                myDiv.style.backgroundColor = colors[currentColorIndex];
+            };
+        });
+    </script>
+</head>
+<body>
+<div id="mydiv"></div>
+</body>
+</html>

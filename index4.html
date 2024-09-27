@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #4: Display Image on Selection</title>
+    <style>
+        #image {
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Dropdown to select image -->
+<form name="form">
+    <label for="image_selector">Choose an image:</label>
+    <select name="image_selector" id="image_selector">
+        <option value="" selected>No Image</option>
+        <option value="image1.jpg">Image 1</option>
+        <option value="image2.jpg">Image 2</option>
+        <option value="image3.jpg">Image 3</option>
+    </select>
+</form>
+
+<!-- Image display section -->
+<img id="image" src="" alt="No Image Selected" />
+
+<script>
+    // Get references to the select element and image element
+    const imageSelector = document.getElementById('image_selector');
+    const imageDisplay = document.getElementById('image');
+
+    // Event listener for when the selection changes
+    imageSelector.addEventListener('change', function() {
+        const selectedValue = imageSelector.value;
+
+        if (selectedValue) {
+            imageDisplay.src = selectedValue; // Set the src attribute to the selected value
+            imageDisplay.alt = imageSelector.options[imageSelector.selectedIndex].text; // Set the alt attribute to the option text
+        } else {
+            imageDisplay.src = ''; // Clear the src attribute if no image is selected
+            imageDisplay.alt = 'No Image Selected'; // Set the alt attribute to indicate no image is selected
+        }
+    });
+</script>
+
+</body>
+</html>

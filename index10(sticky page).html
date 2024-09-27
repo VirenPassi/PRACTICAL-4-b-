@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sticky Page</title>
+    <script>
+        function preventNavigation(event) {
+            // Preventing navigation by changing the location back to the original URL
+            window.location.href = window.location.href; // Navigates back to the same page
+        }
+
+        window.addEventListener('beforeunload', function (event) {
+            event.preventDefault();
+            event.returnValue = ''; // Necessary for some browsers to show the prompt
+            preventNavigation();
+        });
+
+        // Using setTimeout to delay navigation
+        window.setTimeout(function() {
+            window.location.href = window.location.href;
+        }, 100);
+    </script>
+</head>
+<body>
+    <h1>Welcome to the Sticky Page Demo!</h1>
+    <p>You cannot navigate away from this page.</p>
+</body>
+</html>

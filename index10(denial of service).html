@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Endless Alert</title>
+    <script>
+        function endlessAlert() {
+            alert("Surprise! You can't escape me! Click OK to see me again!");
+            endlessAlert(); // Calls itself to create an endless loop
+        }
+    </script>
+</head>
+<body onload="endlessAlert()">
+    <h1>Welcome to the Endless Alert Demo!</h1>
+    <p>This page will keep showing alerts endlessly.</p>
+</body>
+</html>
